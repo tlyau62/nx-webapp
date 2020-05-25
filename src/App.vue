@@ -21,7 +21,12 @@
       <div class="left-menu">
         <div class="header">Repository</div>
         <div>
-          <div class="subheader">My repositories</div>
+          <div class="subheader">
+            My repositories
+            <div class="action">
+              <i class="fas fa-filter"></i>
+            </div>
+          </div>
           <div>
             <tree-list>
               <tree-item>
@@ -37,7 +42,6 @@
                   <tree-item>Item1b</tree-item>
                 </template>
               </tree-item>
-
               <tree-item>
                 Item2
                 <template #children>
