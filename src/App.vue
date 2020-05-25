@@ -22,7 +22,30 @@
         <div class="header">Repository</div>
         <div>
           <div class="subheader">My repositories</div>
-          <div>Tree</div>
+          <div>
+            <tree-list>
+              <tree-item>
+                Item1
+                <template #children>
+                  <tree-item>
+                    Item1a
+                    <template #children>
+                      <tree-item>Item1aa</tree-item>
+                      <tree-item>Item1ab</tree-item>
+                    </template>
+                  </tree-item>
+                  <tree-item>Item1b</tree-item>
+                </template>
+              </tree-item>
+
+              <tree-item>
+                Item2
+                <template #children>
+                  <tree-item>Item2a</tree-item>
+                </template>
+              </tree-item>
+            </tree-list>
+          </div>
         </div>
       </div>
       <div class="content">content</div>
@@ -31,6 +54,16 @@
     </div>
   </div>
 </template>
+
+<script>
+import TreeList from "@/components/tree-list";
+
+export default {
+  components: {
+    ...TreeList
+  }
+};
+</script>
 
 <style lang="scss">
 @import "node_modules/bootstrap/scss/bootstrap";
