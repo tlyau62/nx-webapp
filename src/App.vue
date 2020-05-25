@@ -52,7 +52,17 @@
           </div>
         </div>
       </div>
-      <div class="content">content</div>
+      <div class="content">
+        <div class="top-menu">
+          <div class="menu-item">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="menu-item">
+            <avatar username="Jane Doe" :inline="true" :size="24" :rounded="false"></avatar>
+          </div>
+        </div>
+        <div>test content</div>
+      </div>
       <!-- <div class="col-4">1</div>
       <div class="col-8">2</div>-->
     </div>
@@ -61,10 +71,12 @@
 
 <script>
 import TreeList from "@/components/tree-list";
+import Avatar from "vue-avatar";
 
 export default {
   components: {
-    ...TreeList
+    ...TreeList,
+    Avatar
   }
 };
 </script>
@@ -126,6 +138,7 @@ body {
     width: 256px;
     line-height: 36px;
     background-color: $gray-100;
+    border-right: 1px solid $gray-300;
 
     .header {
       background-color: color("red");
@@ -147,6 +160,19 @@ body {
 
   .content {
     flex: 1;
+
+    .top-menu {
+      background-color: $gray-100;
+      border-bottom: 1px solid $gray-300;
+      height: 36px;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+
+      .menu-item {
+        padding: 0 5px 0 5px;
+      }
+    }
   }
 }
 </style>
