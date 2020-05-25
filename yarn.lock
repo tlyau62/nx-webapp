@@ -1308,6 +1308,16 @@ address@^1.1.2:
   resolved "https://registry.npm.taobao.org/address/download/address-1.1.2.tgz?cache=0&sync_timestamp=1566806604934&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Faddress%2Fdownload%2Faddress-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
   integrity sha1-vxEWycdYxRt6kz0pa3LCIe2UKLY=
 
+ag-grid-community@^23.1.1:
+  version "23.1.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-23.1.1.tgz#049ebbd2b521df4b1ad54ae68d98144cf9963e07"
+  integrity sha512-bWpilWkD7b19BNoycVfifAmXVZGI+s1m/G6ixx7tOcXTQEU+tA6dWiHn2kxt1iiLsixvEwi/6JQu1j9Iykrb7Q==
+
+ag-grid-vue@^23.1.1:
+  version "23.1.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-vue/-/ag-grid-vue-23.1.1.tgz#95e0a9fc495b53c6472e00fce66cdc56fbd1f00d"
+  integrity sha512-p2dciX0gbWmsu+CbGNnqPLWb+Evcdvh8ny6i2mThkAcqFcYNuIv4Hy9wKlAKBiSLpivncSwckP1iHEDEMngMhw==
+
 aggregate-error@^3.0.0:
   version "3.0.1"
   resolved "https://registry.npm.taobao.org/aggregate-error/download/aggregate-error-3.0.1.tgz#db2fe7246e536f40d9b5442a39e117d7dd6a24e0"
@@ -7411,6 +7421,11 @@ vue-avatar@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-avatar/-/vue-avatar-2.3.0.tgz#6cd434575a803e5c4c52ef24b1382b14a24c6336"
   integrity sha512-/zeMhHV0OWp4ESvcX3OIVXUCT1IwCS/18StQh6Q2hqUJwhN3knWG8ktKzJt45rVp9whMXDGg8qDNZKzz3LfRmw==
 
+vue-class-component@^7.1.0:
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.2.3.tgz#a5b1abd53513a72ad51098752e2dedd499807cca"
+  integrity sha512-oEqYpXKaFN+TaXU+mRLEx8dX0ah85aAJEe61mpdoUrq0Bhe/6sWhyZX1JjMQLhVsHAkncyhedhmCdDVSasUtDw==
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
@@ -7426,6 +7441,13 @@ vue-loader@^15.9.1:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-property-decorator@^8.4.2:
+  version "8.4.2"
+  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-8.4.2.tgz#016e17f259f73bc547e77a50ce282ba18db4ee41"
+  integrity sha512-IqbARlvgPE2pzKfbecKxsu2yEH0Wv7hfHR6m4eZA3LTnNw9hveAX77vDfLFyTeMISS5N7Kucp/xRSHjcQ6bAfQ==
+  dependencies:
+    vue-class-component "^7.1.0"
 
 vue-router@^3.1.6:
   version "3.2.0"
