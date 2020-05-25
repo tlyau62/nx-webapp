@@ -1,16 +1,33 @@
 <template>
   <div id="app">
     <div id="icons-panel">
-      <i class="fas fa-home"></i>
-      <i class="fas fa-box"></i>
+      <div class="icon active">
+        <i class="fas fa-home"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-box"></i>
+      </div>
 
       <div class="bottom-icons">
-        <i class="fas fa-trash-alt"></i>
-        <i class="fas fa-cogs"></i>
+        <div class="icon">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+        <div class="icon">
+          <i class="fas fa-cogs"></i>
+        </div>
       </div>
     </div>
     <div id="main-panel">
-      <p>test</p>
+      <div class="left-menu">
+        <div class="header">Repository</div>
+        <div>
+          <div class="subheader">My repositories</div>
+          <div>Tree</div>
+        </div>
+      </div>
+      <div class="content">content</div>
+      <!-- <div class="col-4">1</div>
+      <div class="col-8">2</div>-->
     </div>
   </div>
 </template>
@@ -46,14 +63,53 @@ body {
   }
 
   i {
-    display: flex;
     font-size: 20px;
+    opacity: 60%;
+    color: theme-color("light");
+  }
+
+  .icon {
+    display: flex;
     width: 48px;
     height: 48px;
     align-items: center;
     justify-content: center;
-    color: theme-color("light");
-    opacity: 60%;
+
+    &.active {
+      border-left: 2px solid color("cyan");
+    }
+  }
+}
+
+#main-panel {
+  flex: 1;
+  display: flex;
+
+  .left-menu {
+    width: 256px;
+    line-height: 36px;
+    background-color: $gray-100;
+
+    .header {
+      background-color: color("red");
+      color: color("white");
+      text-align: center;
+    }
+
+    .subheader {
+      font-size: 15px;
+      line-height: 36px;
+      color: $gray-600;
+      padding: 0 10px 0 10px;
+
+      .action {
+        float: right;
+      }
+    }
+  }
+
+  .content {
+    flex: 1;
   }
 }
 </style>
