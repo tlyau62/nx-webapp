@@ -112,7 +112,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~bootstrap/scss/bootstrap";
+@import "@/scss/bootstrap.scss";
 @import "~vue-tabulator/dist/scss/bootstrap/tabulator_bootstrap4";
 
 html,
