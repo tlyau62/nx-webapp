@@ -61,7 +61,9 @@
             <avatar username="Jane Doe" :inline="true" :size="24" :rounded="false"></avatar>
           </div>
         </div>
-        <div>test content</div>
+        <div class="repo-table-container">
+          <vue-tabulator v-model="dados" :options="options" />
+        </div>
       </div>
       <!-- <div class="col-4">1</div>
       <div class="col-8">2</div>-->
@@ -72,17 +74,46 @@
 <script>
 import TreeList from "@/components/tree-list";
 import Avatar from "vue-avatar";
+import { TabulatorComponent } from "vue-tabulator";
 
 export default {
   components: {
     ...TreeList,
-    Avatar
+    Avatar,
+    VueTabulator: TabulatorComponent
+  },
+  data() {
+    return {
+      options: {
+        columns: [
+          {
+            title: "Name",
+            field: "name",
+            sorter: "string",
+            width: 200
+          },
+          {
+            title: "Age",
+            field: "age",
+            sorter: "int",
+            width: 200
+          }
+        ]
+      },
+      dados: [
+        {
+          name: "Teste",
+          age: 13
+        }
+      ]
+    };
   }
 };
 </script>
 
 <style lang="scss">
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
+@import "~vue-tabulator/dist/scss/bootstrap/tabulator_bootstrap4";
 
 html,
 body {
@@ -160,6 +191,8 @@ body {
 
   .content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 
     .top-menu {
       background-color: $gray-100;
@@ -172,6 +205,10 @@ body {
       .menu-item {
         padding: 0 5px 0 5px;
       }
+    }
+
+    .repo-table-container {
+      flex: 1;
     }
   }
 }
