@@ -67,7 +67,7 @@
               <button>Test button</button>
             </div>
           </div>
-          <vue-tabulator v-model="dados" :options="options" />
+          <vue-tabulator ref="tabulator" v-model="dados" :options="options" />
           <vue-context ref="menu">
             <li>
               <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 1</a>
@@ -91,6 +91,8 @@ import { TabulatorComponent } from "vue-tabulator";
 import { VueContext } from "vue-context";
 import $ from "jquery";
 
+window.$ = $;
+
 export default {
   components: {
     ...TreeList,
@@ -102,6 +104,7 @@ export default {
     const self = this;
 
     return {
+      lastSelectedRow: null,
       options: {
         layout: "fitColumns",
         selectable: true,
@@ -111,6 +114,66 @@ export default {
             event.stopPropagation();
             self.$refs.menu.open(evt);
           });
+
+          $(row.getElement()).data("rowdata", row);
+        },
+        rowClick(e, row) {
+          const { ctrlKey, shiftKey } = e;
+
+          if (ctrlKey) {
+            self.lastSelectedRow = row;
+            return;
+          }
+
+          if (shiftKey) {
+            if (self.lastSelectedRow === null) {
+              return;
+            }
+
+            const selected = self.$refs.tabulator
+              .getInstance()
+              .getSelectedRows();
+
+            window.table = self.$refs.tabulator.getInstance();
+
+            for (const srow in selected) {
+              selected[srow].deselect();
+            }
+
+            let min, max;
+
+            if (
+              $(self.lastSelectedRow.getElement()).index() <
+              $(row.getElement()).index()
+            ) {
+              min = self.lastSelectedRow.getElement();
+              max = row.getElement();
+            } else {
+              max = self.lastSelectedRow.getElement();
+              min = row.getElement();
+            }
+
+            min = $(min);
+            max = $(max);
+
+            while (!min.is(max)) {
+              min.data("rowdata").select();
+              min = min.next();
+            }
+            max.data("rowdata").select();
+
+            return;
+          }
+
+          const selected = self.$refs.tabulator.getInstance().getSelectedRows();
+
+          for (const srow in selected) {
+            if (selected[srow].getElement() != row.getElement()) {
+              selected[srow].deselect();
+            }
+          }
+
+          self.lastSelectedRow = row;
         },
         columns: [
           {
