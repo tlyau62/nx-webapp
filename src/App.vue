@@ -366,7 +366,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    height: 100vh;
 
     .top-menu {
       background-color: $gray-100;
@@ -383,12 +383,10 @@ body {
     }
 
     .table-container {
-      flex: 1;
+      height: calc(100% - 36px);
 
-      .tabulator-row {
-        height: 24px !important;
-        min-height: 24px !important;
-        max-height: 24px !important;
+      .tabulator {
+        height: 100%;
       }
 
       .tabulator-row .tabulator-cell {
