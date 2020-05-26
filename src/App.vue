@@ -62,6 +62,11 @@
           </div>
         </div>
         <div class="table-container" @contextmenu.prevent="$refs.menu.open($event)">
+          <div class="actions">
+            <div>
+              <button>Test button</button>
+            </div>
+          </div>
           <vue-tabulator v-model="dados" :options="options" />
           <vue-context ref="menu">
             <li>
@@ -372,7 +377,7 @@ body {
     }
 
     .table-container {
-      height: calc(100% - 36px);
+      height: calc(100% - 36px - 36px);
 
       .tabulator,
       .tabulator-table,
@@ -419,6 +424,12 @@ body {
       //   max-height: calc(100vh - 48px - 36px);
       //   overflow: auto !important;
       // }
+
+      .actions {
+        display: flex;
+        height: 36px;
+        align-items: center;
+      }
     }
   }
 }
