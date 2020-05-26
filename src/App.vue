@@ -86,6 +86,31 @@ export default {
   data() {
     return {
       options: {
+        // height: "100%",
+        // layout: "fitColumns",
+        rowContextMenu: [
+          {
+            label: "<i class='fas fa-user'></i> Change Name",
+            action: function(e, row) {
+              row.update({ name: "Steve Bobberson" });
+            }
+          },
+          {
+            label: "<i class='fas fa-check-square'></i> Select Row",
+            action: function(e, row) {
+              row.select();
+            }
+          },
+          {
+            separator: true
+          },
+          {
+            label: "<i class='fas fa-trash'></i> Delete Row",
+            action: function(e, row) {
+              row.delete();
+            }
+          }
+        ], //add context menu to rows
         columns: [
           {
             title: "Name",
@@ -286,7 +311,8 @@ export default {
 
 <style lang="scss">
 @import "@/scss/bootstrap.scss";
-@import "~vue-tabulator/dist/scss/bootstrap/tabulator_bootstrap4";
+@import "~tabulator-tables/dist/css/bootstrap/tabulator_bootstrap4.css";
+// @import "~vue-tabulator/dist/scss/bootstrap/tabulator_bootstrap4";
 
 html,
 body {
@@ -385,8 +411,21 @@ body {
     .table-container {
       height: calc(100% - 36px);
 
+      .tabulator,
+      .tabulator-table,
+      .tabulator-row {
+        background: none;
+      }
+
       .tabulator {
         height: 100%;
+      }
+
+      .tabulator-row {
+        height: 24px !important;
+        min-height: 24px !important;
+        max-height: 24px !important;
+        border: none;
       }
 
       .tabulator-row .tabulator-cell {
@@ -399,16 +438,15 @@ body {
         max-height: 24px !important;
       }
 
-      .tabulator-row {
-        border: 0;
-      }
-
       .tabulator-tableHolder {
         background-image: url("assets/grid-bg.svg");
-        max-height: calc(100vh - 24px - 36px);
-        overflow: auto;
         background-attachment: local;
       }
+
+      // .tabulator-table {
+      //   max-height: calc(100vh - 48px - 36px);
+      //   overflow: auto !important;
+      // }
     }
   }
 }
