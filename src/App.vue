@@ -111,7 +111,8 @@ export default {
           {
             title: "Name",
             field: "name",
-            sorter: "string"
+            sorter: "string",
+            width: 400
           },
           {
             title: "Age",
@@ -121,11 +122,14 @@ export default {
           },
           {
             title: "",
-            width: 10
+            headerSort: false
           },
           {
-            title: "Option",
-            width: 10
+            titleFormatter: function(cell, formatterParams) {
+              return "<i class='fas fa-cog'></i>";
+            },
+            width: 10,
+            headerSort: false
           }
         ]
       },
@@ -273,7 +277,6 @@ export default {
 @import "~vue-context/src/sass/vue-context";
 @import "~tabulator-tables/dist/css/bootstrap/tabulator_bootstrap4.css";
 
-
 html,
 body {
   height: 100%;
@@ -392,11 +395,11 @@ body {
         padding: 0;
       }
 
-      .tabulator-header {
-        height: 24px !important;
-        min-height: 24px !important;
-        max-height: 24px !important;
-      }
+      // .tabulator-header {
+      //   height: 24px !important;
+      //   min-height: 24px !important;
+      //   max-height: 24px !important;
+      // }
 
       .tabulator-tableHolder {
         background-image: url("assets/grid-bg.svg");
@@ -405,6 +408,11 @@ body {
 
       .tabulator-selected {
         background-color: $gray-200;
+      }
+
+      .tabulator-header {
+        border-top: 0;
+        border-bottom: 1px solid $gray-300;
       }
 
       // .tabulator-table {
