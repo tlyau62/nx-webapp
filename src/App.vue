@@ -61,8 +61,16 @@
             <avatar username="Jane Doe" :inline="true" :size="24" :rounded="false"></avatar>
           </div>
         </div>
-        <div class="table-container">
+        <div class="table-container" @contextmenu.prevent="$refs.menu.open($event)">
           <vue-tabulator v-model="dados" :options="options" />
+          <vue-context ref="menu">
+            <li>
+              <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 1</a>
+            </li>
+            <li>
+              <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 2</a>
+            </li>
+          </vue-context>
         </div>
       </div>
       <!-- <div class="col-4">1</div>
@@ -75,102 +83,53 @@
 import TreeList from "@/components/tree-list";
 import Avatar from "vue-avatar";
 import { TabulatorComponent } from "vue-tabulator";
+import { VueContext } from "vue-context";
 import $ from "jquery";
 
 export default {
   components: {
     ...TreeList,
     Avatar,
-    VueTabulator: TabulatorComponent
+    VueTabulator: TabulatorComponent,
+    VueContext
   },
   data() {
+    const self = this;
+
     return {
       options: {
-        // height: "100%",
-        // layout: "fitColumns",
-        rowContextMenu: [
-          {
-            label: "<i class='fas fa-user'></i> Change Name",
-            action: function(e, row) {
-              row.update({ name: "Steve Bobberson" });
-            }
-          },
-          {
-            label: "<i class='fas fa-check-square'></i> Select Row",
-            action: function(e, row) {
-              row.select();
-            }
-          },
-          {
-            separator: true
-          },
-          {
-            label: "<i class='fas fa-trash'></i> Delete Row",
-            action: function(e, row) {
-              row.delete();
-            }
-          }
-        ], //add context menu to rows
+        layout: "fitColumns",
+        selectable: true,
+        rowFormatter(row) {
+          $(row.getElement()).on("contextmenu", evt => {
+            evt.preventDefault();
+            event.stopPropagation();
+            self.$refs.menu.open(evt);
+          });
+        },
         columns: [
           {
             title: "Name",
             field: "name",
-            sorter: "string",
-            width: 200
+            sorter: "string"
           },
           {
             title: "Age",
             field: "age",
             sorter: "int",
             width: 200
+          },
+          {
+            title: "",
+            width: 10
+          },
+          {
+            title: "Option",
+            width: 10
           }
         ]
       },
       dados: [
-        {
-          name: "Teste",
-          age: 13
-        },
-        {
-          name: "Testez",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
         {
           name: "Testezs",
           age: 13
@@ -311,8 +270,9 @@ export default {
 
 <style lang="scss">
 @import "@/scss/bootstrap.scss";
+@import "~vue-context/src/sass/vue-context";
 @import "~tabulator-tables/dist/css/bootstrap/tabulator_bootstrap4.css";
-// @import "~vue-tabulator/dist/scss/bootstrap/tabulator_bootstrap4";
+
 
 html,
 body {
@@ -441,6 +401,10 @@ body {
       .tabulator-tableHolder {
         background-image: url("assets/grid-bg.svg");
         background-attachment: local;
+      }
+
+      .tabulator-selected {
+        background-color: $gray-200;
       }
 
       // .tabulator-table {
