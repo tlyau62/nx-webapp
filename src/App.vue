@@ -61,7 +61,7 @@
             <avatar username="Jane Doe" :inline="true" :size="24" :rounded="false"></avatar>
           </div>
         </div>
-        <div class="repo-table-container">
+        <div class="table-container">
           <vue-tabulator v-model="dados" :options="options" />
         </div>
       </div>
@@ -75,6 +75,7 @@
 import TreeList from "@/components/tree-list";
 import Avatar from "vue-avatar";
 import { TabulatorComponent } from "vue-tabulator";
+import $ from "jquery";
 
 export default {
   components: {
@@ -103,6 +104,178 @@ export default {
       dados: [
         {
           name: "Teste",
+          age: 13
+        },
+        {
+          name: "Testez",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Teste",
+          age: 13
+        },
+        {
+          name: "Testez",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
+          age: 13
+        },
+        {
+          name: "Testezs",
           age: 13
         }
       ]
@@ -193,11 +366,13 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 
     .top-menu {
       background-color: $gray-100;
       border-bottom: 1px solid $gray-300;
       height: 36px;
+      min-height: 36px;
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
@@ -207,8 +382,35 @@ body {
       }
     }
 
-    .repo-table-container {
+    .table-container {
       flex: 1;
+
+      .tabulator-row {
+        height: 24px !important;
+        min-height: 24px !important;
+        max-height: 24px !important;
+      }
+
+      .tabulator-row .tabulator-cell {
+        padding: 0;
+      }
+
+      .tabulator-header {
+        height: 24px !important;
+        min-height: 24px !important;
+        max-height: 24px !important;
+      }
+
+      .tabulator-row {
+        border: 0;
+      }
+
+      .tabulator-tableHolder {
+        background-image: url("assets/grid-bg.svg");
+        max-height: calc(100vh - 24px - 36px);
+        overflow: auto;
+        background-attachment: local;
+      }
     }
   }
 }
