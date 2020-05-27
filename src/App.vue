@@ -70,7 +70,20 @@
             <span style="color: #666666">SubFolderB</span>
           </div>
           <span style="flex: 1;"></span>
-          <button>Test button</button>
+          <div class="table-actions">
+            <span>
+              <img src="@/assets/newfolder.png" />
+              New Folder
+            </span>
+            <span>
+              <img src="@/assets/uploadfile.png" />
+              Upload File
+            </span>
+            <span>
+              <img src="@/assets/uploadfolder.png" />
+              Upload Folder
+            </span>
+          </div>
         </div>
         <div class="table-container" @contextmenu.prevent="$refs.menu.open($event)">
           <div class="tabulator-wrapper">
@@ -473,6 +486,15 @@ body {
       .table-nav {
         margin-left: 5px;
         color: $gray-500;
+        display: flex;
+        align-items: center;
+
+        & > * {
+          margin: 0 5px;
+        }
+      }
+
+      .table-actions {
         display: flex;
         align-items: center;
 
