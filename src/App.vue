@@ -194,30 +194,30 @@ export default {
           {
             title: "Name",
             field: "name",
-            sorter: "string",
-            width: 400
+            sorter: "string"
           },
           {
             title: "Size",
             field: "size",
             sorter: "string",
-            width: 100
+            width: 200
           },
           {
             title: "Type",
             field: "type",
             sorter: "string",
-            width: 100
+            width: 200
           },
           {
             title: "Date added",
             field: "added",
             sorter: "string",
-            width: 100
+            width: 200
           },
           {
             title: "",
-            headerSort: false
+            headerSort: false,
+            width: 100
           },
           {
             titleFormatter: function(cell, formatterParams) {
