@@ -55,6 +55,9 @@
       <div class="content">
         <div class="top-menu">
           <div class="menu-item">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="menu-item">
             <i class="fas fa-search"></i>
           </div>
           <div class="menu-item">
@@ -392,6 +395,7 @@ body {
 
       .menu-item {
         padding: 0 5px 0 5px;
+        margin: 0 5px;
       }
     }
 
@@ -429,7 +433,6 @@ body {
         font-size: $font-size-base * 1px;
         vertical-align: top;
       }
-
 
       .tabulator-tableHolder {
         background-image: url("assets/grid-bg.svg");
