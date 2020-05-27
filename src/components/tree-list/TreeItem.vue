@@ -11,12 +11,14 @@
           @click="toggleChildren"
         ></i>
       </div>
-      <div style="display: inline-block; height: 24px;">
+      <div class="tree-header-content" style="display: inline-block; height: 24px;">
         <slot></slot>
       </div>
-    </div>
-    <div class="children" v-if="$slots.children && showChildren">
-      <slot name="children"></slot>
+     </div>
+    <div class="children-wrapper">
+      <div class="children" v-if="$slots.children && showChildren">
+        <slot name="children"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -60,6 +62,14 @@ export default {
     //   top: 50%;
     //   left: 50%;
     // }
+
+    .whole-row {
+      background-color: gray;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      // z-index: -1;
+    }
   }
 }
 </style>

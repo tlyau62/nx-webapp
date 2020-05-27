@@ -1,5 +1,5 @@
 <template>
-  <div id="tree-list">
+  <div class="tree-list">
     <slot></slot>
   </div>
 </template>
@@ -9,6 +9,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-#tree-list {
+.tree-list {
+  position: relative;
 }
 </style>
