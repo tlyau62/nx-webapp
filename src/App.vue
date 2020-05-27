@@ -28,27 +28,28 @@
             </div>
           </div>
           <div>
-            <tree-list>
-              <tree-item>
-                Item1
-                <template #children>
-                  <tree-item>
-                    Item1a
-                    <template #children>
-                      <tree-item>Item1aa</tree-item>
-                      <tree-item>Item1ab</tree-item>
-                    </template>
-                  </tree-item>
-                  <tree-item>Item1b</tree-item>
-                </template>
-              </tree-item>
-              <tree-item>
-                Item2
-                <template #children>
-                  <tree-item>Item2a</tree-item>
-                </template>
-              </tree-item>
-            </tree-list>
+            <js-tree :options="jstreeOptions">
+              <ul>
+                <li>
+                  Folder A
+                  <ul>
+                    <li>SubFolder A</li>
+                    <li>
+                      SubFolder B
+                      <ul>
+                        <li>
+                          SubSubFolder C
+                          <ul>
+                            <li>SubFolder A</li>
+                            <li>SubFolder B</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </js-tree>
           </div>
         </div>
       </div>
@@ -120,6 +121,7 @@ import Avatar from "vue-avatar";
 import { TabulatorComponent } from "vue-tabulator";
 import { VueContext } from "vue-context";
 import $ from "jquery";
+import JsTree from "@/components/js-tree";
 
 window.$ = $;
 
@@ -128,12 +130,16 @@ export default {
     ...TreeList,
     Avatar,
     VueTabulator: TabulatorComponent,
-    VueContext
+    VueContext,
+    ...JsTree
   },
   data() {
     const self = this;
 
     return {
+      jstreeOptions: {
+        plugins: ["wholerow"]
+      },
       lastSelectedRow: null,
       selectedRowInfo: [],
       options: {
