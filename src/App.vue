@@ -61,13 +61,18 @@
             <avatar username="Jane Doe" :inline="true" :size="24" :rounded="false"></avatar>
           </div>
         </div>
-        <div class="table-container" @contextmenu.prevent="$refs.menu.open($event)">
-          <div class="actions">
-            <button>Test button</button>
-            <div class="right-actions">
-              <button>Test button</button>
-            </div>
+        <div class="table-toolbar">
+          <div class="table-nav">
+            <i class="fas fa-cloud"></i>
+            <i class="fas fa-chevron-right"></i>
+            <span style="color: #666666">FolderA</span>
+            <i class="fas fa-chevron-right"></i>
+            <span style="color: #666666">SubFolderB</span>
           </div>
+          <span style="flex: 1;"></span>
+          <button>Test button</button>
+        </div>
+        <div class="table-container" @contextmenu.prevent="$refs.menu.open($event)">
           <div class="tabulator-wrapper">
             <vue-tabulator ref="tabulator" v-model="dados" :options="options" />
             <vue-context ref="menu">
@@ -456,6 +461,24 @@ body {
 
       .tabulator-arrow {
         top: calc(21px / 2);
+      }
+    }
+
+    .table-toolbar {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      height: 36px;
+
+      .table-nav {
+        margin-left: 5px;
+        color: $gray-500;
+        display: flex;
+        align-items: center;
+
+        & > * {
+          margin: 0 5px;
+        }
       }
     }
 
