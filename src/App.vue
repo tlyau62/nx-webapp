@@ -184,7 +184,9 @@ export default {
               return "<div class='w-100 text-center'><i class='fas fa-lock'></i></div>";
             },
             formatter(cell, formatterParams, onRendered) {
-              return cell.getValue() ? "<i class='fas fa-lock lock-icon'></i>" : "<span class='unlock-icon'>&bull;</span>";
+              return cell.getValue()
+                ? "<i class='fas fa-lock lock-icon'></i>"
+                : "<span class='unlock-icon'>&bull;</span>";
             },
             width: 10,
             headerSort: false,
@@ -192,6 +194,9 @@ export default {
             field: "locked"
           },
           {
+            formatter(cell, formatterParams, onRendered) {
+              return `<span style="display: flex; align-items: center;"><img src="folder.png" style="height: 14px; padding: 0 5px 0 0;"/>${cell.getValue()}</span>`;
+            },
             title: "Name",
             field: "name",
             sorter: "string"
