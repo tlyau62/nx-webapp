@@ -184,7 +184,6 @@ export default {
               return "<i class='fas fa-lock'></i>";
             },
             formatter(cell, formatterParams, onRendered) {
-              console.log(cell);
               return cell.getValue() ? "<i class='fas fa-lock'></i>" : "&bull;";
             },
             width: 10,
@@ -202,19 +201,19 @@ export default {
             title: "Size",
             field: "size",
             sorter: "string",
-            width: 200
+            width: 100
           },
           {
             title: "Type",
             field: "type",
             sorter: "string",
-            width: 200
+            width: 100
           },
           {
             title: "Date added",
             field: "added",
             sorter: "string",
-            width: 200
+            width: 100
           },
           {
             title: "",
@@ -330,6 +329,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    width: calc(100vw - 48px - 256px);
 
     .top-menu {
       background-color: $gray-100;
@@ -387,6 +387,10 @@ body {
       .tabulator-header {
         border-top: 0;
         border-bottom: 1px solid $gray-300;
+      }
+
+      .tabulator-col {
+        border-right: 1px solid $gray-300;
       }
 
       // .tabulator-table {
