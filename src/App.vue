@@ -422,7 +422,7 @@ body {
         background-attachment: local;
       }
 
-      .tabulator-selected {
+      .tabulator-row.tabulator-selected {
         background-color: $gray-200;
       }
 
