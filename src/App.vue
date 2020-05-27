@@ -63,19 +63,22 @@
         </div>
         <div class="table-container" @contextmenu.prevent="$refs.menu.open($event)">
           <div class="actions">
-            <div>
+            <button>Test button</button>
+            <div class="right-actions">
               <button>Test button</button>
             </div>
           </div>
-          <vue-tabulator ref="tabulator" v-model="dados" :options="options" />
-          <vue-context ref="menu">
-            <li>
-              <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 1</a>
-            </li>
-            <li>
-              <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 2</a>
-            </li>
-          </vue-context>
+          <div class="tabulator-wrapper">
+            <vue-tabulator ref="tabulator" v-model="dados" :options="options" />
+            <vue-context ref="menu">
+              <li>
+                <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 1</a>
+              </li>
+              <li>
+                <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 2</a>
+              </li>
+            </vue-context>
+          </div>
         </div>
       </div>
       <!-- <div class="col-4">1</div>
@@ -489,9 +492,20 @@ body {
       // }
 
       .actions {
-        display: flex;
         height: 36px;
-        align-items: center;
+
+        .right-actions {
+          float: right;
+        }
+
+        button {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      .tabulator-wrapper {
+        height: 100%;
       }
     }
   }
