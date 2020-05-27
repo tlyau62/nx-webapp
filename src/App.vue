@@ -184,7 +184,7 @@ export default {
               return "<div class='w-100 text-center'><i class='fas fa-lock'></i></div>";
             },
             formatter(cell, formatterParams, onRendered) {
-              return cell.getValue() ? "<i class='fas fa-lock'></i>" : "&bull;";
+              return cell.getValue() ? "<i class='fas fa-lock lock-icon'></i>" : "<span class='unlock-icon'>&bull;</span>";
             },
             width: 10,
             headerSort: false,
@@ -426,6 +426,14 @@ body {
 
       .tabulator-wrapper {
         height: 100%;
+      }
+
+      .lock-icon {
+        color: $gray-700;
+      }
+
+      .unlock-icon {
+        color: $gray-500;
       }
     }
   }
