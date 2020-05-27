@@ -181,7 +181,7 @@ export default {
         columns: [
           {
             titleFormatter: function(cell, formatterParams) {
-              return "<i class='fas fa-lock'></i>";
+              return "<div class='w-100 text-center'><i class='fas fa-lock'></i></div>";
             },
             formatter(cell, formatterParams, onRendered) {
               return cell.getValue() ? "<i class='fas fa-lock'></i>" : "&bull;";
@@ -221,7 +221,7 @@ export default {
           },
           {
             titleFormatter: function(cell, formatterParams) {
-              return "<i class='fas fa-cog'></i>";
+              return "<div class='w-100 text-center'><i class='fas fa-cog'></i></div>";
             },
             width: 10,
             headerSort: false
