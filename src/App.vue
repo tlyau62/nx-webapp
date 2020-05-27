@@ -257,7 +257,9 @@ export default {
           {
             title: "",
             formatter(cell, formatterParams, onRendered) {
-              const $btn = $(`<button class="cell-action d-none" >...</button>`);
+              const $btn = $(
+                `<button class="cell-action d-none" ><i class="fas fa-ellipsis-h"></i></button>`
+              );
 
               $btn.click(evt => {
                 evt.stopPropagation();
@@ -425,13 +427,9 @@ body {
         padding: 0 10px 0 10px;
         font-weight: 400;
         font-size: $font-size-base * 1px;
+        vertical-align: top;
       }
 
-      // .tabulator-header {
-      //   height: 24px !important;
-      //   min-height: 24px !important;
-      //   max-height: 24px !important;
-      // }
 
       .tabulator-tableHolder {
         background-image: url("assets/grid-bg.svg");
@@ -450,7 +448,6 @@ body {
       .tabulator-col {
         border-right: 1px solid $gray-300;
         height: 24px;
-        vertical-align: middle;
 
         .tabulator-col-content {
           padding: 0 10px 0 10px;
@@ -459,11 +456,6 @@ body {
           font-weight: 400;
         }
       }
-
-      // .tabulator-table {
-      //   max-height: calc(100vh - 48px - 36px);
-      //   overflow: auto !important;
-      // }
 
       .actions {
         height: 36px;
@@ -531,6 +523,17 @@ body {
       padding: 5px 10px;
       display: flex;
       align-content: center;
+    }
+
+    .cell-action {
+      font-size: 10px;
+      padding: 0 8px;
+      vertical-align: middle;
+
+      button {
+        border-radius: 5px;
+        border: 1px solid gray;
+      }
     }
   }
 }
