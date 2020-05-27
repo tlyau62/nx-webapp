@@ -396,6 +396,10 @@ body {
         min-height: 24px !important;
         max-height: 24px !important;
         border: none;
+
+        &:hover {
+          background-color: lighten($gray-200, 3%);
+        }
       }
 
       .tabulator-row .tabulator-cell {
