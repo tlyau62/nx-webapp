@@ -78,9 +78,12 @@
                 <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 2</a>
               </li>
             </vue-context>
-            <div
-              v-if="selectedRowInfo.length > 0"
-            >{{selectedRowInfo.length}} / {{dados.length}} items are selected, with total size of ? MB</div>
+            <div class="tabulator-status-bar" v-if="selectedRowInfo.length > 0">
+              <div>
+                <b style="font-weight: 500">{{selectedRowInfo.length}} / {{dados.length}}</b> items are selected, with total size of
+                <b style="font-weight: 500">? MB</b>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -454,6 +457,15 @@ body {
       .tabulator-arrow {
         top: calc(21px / 2);
       }
+    }
+
+    .tabulator-status-bar {
+      background-color: $gray-200;
+      color: $gray-700;
+      height: 36px;
+      padding: 5px 10px;
+      display: flex;
+      align-content: center;
     }
   }
 }
