@@ -257,10 +257,8 @@ body {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
   display: flex;
   flex-direction: row;
 }
@@ -356,6 +354,7 @@ body {
 
       .tabulator {
         height: 100%;
+        // color: rgb(51, 51, 51);
       }
 
       .tabulator-row {
@@ -367,6 +366,8 @@ body {
 
       .tabulator-row .tabulator-cell {
         padding: 0;
+        font-weight: 400;
+        font-size: $font-size-base * 1px;
       }
 
       // .tabulator-header {
