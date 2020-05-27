@@ -78,6 +78,9 @@
                 <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 2</a>
               </li>
             </vue-context>
+            <div
+              v-if="selectedRowInfo.length > 0"
+            >{{selectedRowInfo.length}} / {{dados.length}} items are selected, with total size of ? MB</div>
           </div>
         </div>
       </div>
@@ -108,6 +111,7 @@ export default {
 
     return {
       lastSelectedRow: null,
+      selectedRowInfo: [],
       options: {
         layout: "fitColumns",
         selectable: true,
@@ -125,6 +129,7 @@ export default {
 
           if (ctrlKey) {
             self.lastSelectedRow = row;
+            self.selectedRowInfo = row.getTable().getSelectedRows();
             return;
           }
 
@@ -165,6 +170,7 @@ export default {
             }
             max.data("rowdata").select();
 
+            self.selectedRowInfo = row.getTable().getSelectedRows();
             return;
           }
 
@@ -177,6 +183,8 @@ export default {
           }
 
           self.lastSelectedRow = row;
+
+          self.selectedRowInfo = row.getTable().getSelectedRows();
         },
         columns: [
           {
@@ -430,6 +438,8 @@ body {
       }
 
       .tabulator-wrapper {
+        display: flex;
+        flex-direction: column;
         height: 100%;
       }
 
