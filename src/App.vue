@@ -195,7 +195,7 @@ export default {
           },
           {
             formatter(cell, formatterParams, onRendered) {
-              return `<span style="display: flex; align-items: center;"><img src="folder.png" style="height: 14px; padding: 0 5px 0 0;"/>${cell.getValue()}</span>`;
+              return `<span style="display: flex; align-items: center;"><img src="folder.png" style="height: 14px; padding: 0 10px 0 0;"/>${cell.getValue()}</span>`;
             },
             title: "Name",
             field: "name",
@@ -439,6 +439,10 @@ body {
 
       .unlock-icon {
         color: $gray-500;
+      }
+
+      .tabulator-arrow {
+        top: calc(21px / 2);
       }
     }
   }
