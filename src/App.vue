@@ -365,7 +365,10 @@ body {
       }
 
       .tabulator-row .tabulator-cell {
-        padding: 0;
+        height: 24px !important;
+        min-height: 24px !important;
+        max-height: 24px !important;
+        padding: 0 10px 0 10px;
         font-weight: 400;
         font-size: $font-size-base * 1px;
       }
@@ -392,6 +395,15 @@ body {
 
       .tabulator-col {
         border-right: 1px solid $gray-300;
+        height: 24px;
+        vertical-align: middle;
+
+        .tabulator-col-content {
+          padding: 0 10px 0 10px;
+          font-size: $font-size-base * 1px;
+          color: $gray-700;
+          font-weight: 400;
+        }
       }
 
       // .tabulator-table {
