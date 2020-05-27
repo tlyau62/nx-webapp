@@ -137,13 +137,19 @@ export default {
         layout: "fitColumns",
         selectable: true,
         rowFormatter(row) {
-          $(row.getElement()).on("contextmenu", evt => {
+          const $el = $(row.getElement());
+          const $action = $el.find(".cell-action");
+
+          $el.on("contextmenu", evt => {
             evt.preventDefault();
             event.stopPropagation();
             self.$refs.menu.open(evt);
           });
 
-          $(row.getElement()).data("rowdata", row);
+          $el.data("rowdata", row);
+
+          $el.mouseenter(evt => $action.removeClass("d-none"));
+          $el.mouseleave(evt => $action.addClass("d-none"));
         },
         rowClick(e, row) {
           const { ctrlKey, shiftKey } = e;
@@ -250,6 +256,16 @@ export default {
           },
           {
             title: "",
+            formatter(cell, formatterParams, onRendered) {
+              const $btn = $(`<button class="cell-action d-none" >...</button>`);
+
+              $btn.click(evt => {
+                evt.stopPropagation();
+              });
+
+              return $btn[0];
+            },
+            align: "center",
             headerSort: false,
             width: 100
           },
