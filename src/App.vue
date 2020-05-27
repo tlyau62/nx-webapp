@@ -180,15 +180,40 @@ export default {
         },
         columns: [
           {
+            titleFormatter: function(cell, formatterParams) {
+              return "<i class='fas fa-lock'></i>";
+            },
+            formatter(cell, formatterParams, onRendered) {
+              console.log(cell);
+              return cell.getValue() ? "<i class='fas fa-lock'></i>" : "&bull;";
+            },
+            width: 10,
+            headerSort: false,
+            align: "center",
+            field: "locked"
+          },
+          {
             title: "Name",
             field: "name",
             sorter: "string",
             width: 400
           },
           {
-            title: "Age",
-            field: "age",
-            sorter: "int",
+            title: "Size",
+            field: "size",
+            sorter: "string",
+            width: 200
+          },
+          {
+            title: "Type",
+            field: "type",
+            sorter: "string",
+            width: 200
+          },
+          {
+            title: "Date added",
+            field: "added",
+            sorter: "string",
             width: 200
           },
           {
@@ -205,138 +230,16 @@ export default {
         ]
       },
       dados: [
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Teste",
-          age: 13
-        },
-        {
-          name: "Testez",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        },
-        {
-          name: "Testezs",
-          age: 13
-        }
+        ...new Array(100).fill(0).map((v, i) => ({
+          name:
+            Math.random()
+              .toString(36)
+              .substring(7) + ".txt",
+          size: Math.trunc(Math.random() * 10240) + " MB",
+          type: "document",
+          added: new Date(),
+          locked: Math.random() > 0.5
+        }))
       ]
     };
   }
