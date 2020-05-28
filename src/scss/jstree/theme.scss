@@ -375,15 +375,13 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-// hovered
 .jstree-default .jstree-wholerow-hovered {
-  background: $jstree-row-hovered-bg-color;
+  background: #e7f4f9;
 }
 .jstree-default .jstree-wholerow-clicked {
-  background: $jstree-row-selected-bg-color;
-  background: -webkit-linear-gradient(top, $jstree-row-selected-bg-color 0%, $jstree-row-selected-bg-color 100%);
-  background: linear-gradient(to bottom, $jstree-row-selected-bg-color 0%, $jstree-row-selected-bg-color 100%);
+  background: #beebff;
+  background: -webkit-linear-gradient(top, #beebff 0%, #a8e4ff 100%);
+  background: linear-gradient(to bottom, #beebff 0%, #a8e4ff 100%);
 }
 .jstree-default .jstree-node {
   min-height: 24px;

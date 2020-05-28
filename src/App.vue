@@ -367,7 +367,7 @@ body {
 
     .header {
       line-height: 36px;
-      background-color: color("red");
+      background-color: darken(#beebff, 40%);
       color: color("white");
       text-align: center;
     }
