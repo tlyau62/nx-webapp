@@ -361,11 +361,12 @@ body {
 
   .left-menu {
     width: 256px;
-    line-height: 36px;
+
     background-color: $gray-100;
     border-right: 1px solid $gray-300;
 
     .header {
+      line-height: 36px;
       background-color: color("red");
       color: color("white");
       text-align: center;
