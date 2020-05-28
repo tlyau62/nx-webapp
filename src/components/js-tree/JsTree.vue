@@ -7,7 +7,6 @@
 <script>
 import $ from "jquery";
 import "jstree/dist/jstree";
-import "@/scss/jstree.scss";
 
 export default {
   props: ["options"],
@@ -17,4 +16,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" src="@/scss/jstree/jstree.scss"></style>
