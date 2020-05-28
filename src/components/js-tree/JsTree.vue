@@ -7,7 +7,7 @@
 <script>
 import $ from "jquery";
 import "jstree/dist/jstree";
-import "jstree/dist/themes/default/style.css";
+import "@/scss/jstree.scss";
 
 export default {
   props: ["options"],
