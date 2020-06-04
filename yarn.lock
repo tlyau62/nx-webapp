@@ -5005,10 +5005,8 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   resolved "https://registry.npm.taobao.org/neo-async/download/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
 
-nex-ctxmenu@0.3.0:
+"nex-ctxmenu@file:../../web/ctxmenu":
   version "0.3.0"
-  resolved "https://registry.yarnpkg.com/nex-ctxmenu/-/nex-ctxmenu-0.3.0.tgz#8e0cb29aa9d612533d885494fdbf4b8ec17d6f49"
-  integrity sha512-yGupuV698tqU5udWDoqOe2jv+n7HBiLo29SNQ1B8trj0qv62zhGFlHTkd9xAzxcfSXfhY7lprz2uS3K8+V5YJQ==
   dependencies:
     "@fortawesome/fontawesome-free" "^5.13.0"
     bootstrap "^4.5.0"

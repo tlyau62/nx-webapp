@@ -89,17 +89,9 @@
             </span>
           </div>
         </div>
-        <div class="table-container" @contextmenu.prevent="$refs.menu.open($event)">
+        <div class="table-container">
           <div class="tabulator-wrapper">
             <vue-tabulator ref="tabulator" v-model="dados" :options="options" />
-            <vue-context ref="menu">
-              <li>
-                <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 1</a>
-              </li>
-              <li>
-                <a href="#" @click.prevent="onClick($event.target.innerText)">Row Option 2</a>
-              </li>
-            </vue-context>
             <div class="tabulator-status-bar" v-if="selectedRowInfo.length > 0">
               <div>
                 <b style="font-weight: 500">{{selectedRowInfo.length}} / {{dados.length}}</b> items are selected, with total size of
@@ -112,6 +104,8 @@
       <!-- <div class="col-4">1</div>
       <div class="col-8">2</div>-->
     </div>
+
+    <ctx-menu-factory></ctx-menu-factory>
   </div>
 </template>
 
@@ -122,6 +116,9 @@ import { TabulatorComponent } from "vue-tabulator";
 import { VueContext } from "vue-context";
 import $ from "jquery";
 import JsTree from "@/components/js-tree";
+import CtxMenuFactory from "nex-ctxmenu/src/components/ctx-menu/CtxMenuFactory";
+import CtxMenuEvtBus from "nex-ctxmenu/src/components/ctx-menu/ctx-menu-evt-bus";
+import TableCtxMenu from "@/components/table-ctx-menu/TableCtxMenu";
 
 window.$ = $;
 
@@ -131,7 +128,10 @@ export default {
     Avatar,
     VueTabulator: TabulatorComponent,
     VueContext,
-    ...JsTree
+    ...JsTree,
+    CtxMenuFactory,
+    CtxMenuEvtBus,
+    TableCtxMenu
   },
   data() {
     const self = this;
@@ -150,9 +150,20 @@ export default {
           const $action = $el.find(".cell-action");
 
           $el.on("contextmenu", evt => {
+            const tableEl = row.getTable().element;
+            const tableDim = tableEl.getBoundingClientRect();
             evt.preventDefault();
             event.stopPropagation();
-            self.$refs.menu.open(evt);
+            console.log(tableDim);
+            console.log(evt);
+            CtxMenuEvtBus.$emit("open", {
+              menuComp: TableCtxMenu,
+              pos: {
+                x: evt.originalEvent.x - tableDim.left,
+                y: evt.originalEvent.y - tableDim.top
+              },
+              container: tableEl
+            });
           });
 
           $el.data("rowdata", row);
@@ -271,7 +282,19 @@ export default {
               );
 
               $btn.click(evt => {
+                const tableEl = cell.getTable().element;
+                const tableDim = tableEl.getBoundingClientRect();
+                const targetDim = evt.target.getBoundingClientRect();
+
                 evt.stopPropagation();
+                CtxMenuEvtBus.$emit("open", {
+                  menuComp: TableCtxMenu,
+                  pos: {
+                    x: targetDim.x - tableDim.left,
+                    y: targetDim.y + targetDim.height - tableDim.top
+                  },
+                  container: tableEl
+                });
               });
 
               return $btn[0];
