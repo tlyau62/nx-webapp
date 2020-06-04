@@ -2412,7 +2412,7 @@ core-js-compat@^3.6.2, core-js-compat@^3.6.4:
     browserslist "^4.8.5"
     semver "7.0.0"
 
-core-js@^3.6.4:
+core-js@^3.6.4, core-js@^3.6.5:
   version "3.6.5"
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
   integrity sha1-c5XcJzrzf7LlDpvT2f6EEoUjHRo=
@@ -5004,6 +5004,17 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.npm.taobao.org/neo-async/download/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
+
+nex-ctxmenu@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/nex-ctxmenu/-/nex-ctxmenu-0.3.0.tgz#8e0cb29aa9d612533d885494fdbf4b8ec17d6f49"
+  integrity sha512-yGupuV698tqU5udWDoqOe2jv+n7HBiLo29SNQ1B8trj0qv62zhGFlHTkd9xAzxcfSXfhY7lprz2uS3K8+V5YJQ==
+  dependencies:
+    "@fortawesome/fontawesome-free" "^5.13.0"
+    bootstrap "^4.5.0"
+    core-js "^3.6.5"
+    lodash "^4.17.15"
+    vue "^2.6.11"
 
 nice-try@^1.0.4:
   version "1.0.5"
