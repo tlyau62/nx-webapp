@@ -1,5 +1,5 @@
 <template>
-  <div class="avatar-menu">
+  <ctx-menu class="avatar-menu">
     <div class="user-avatar">
       <avatar username="Jane Doe" :inline="true" :size="100" :rounded="false"></avatar>
       <button class="upload-img">
@@ -44,16 +44,18 @@
     <hr />
 
     <p>v{{packageJson.version}}</p>
-  </div>
+  </ctx-menu>
 </template>
 
 <script>
+import CtxMenu from "nex-ctxmenu/src/components/ctx-menu";
 import Avatar from "vue-avatar";
 import packageJson from "@/../package.json";
 
 export default {
   components: {
-    Avatar
+    Avatar,
+    ...CtxMenu
   },
   data() {
     return {
@@ -96,7 +98,7 @@ export default {
     .account-item {
       display: flex;
       align-items: center;
-      padding: 10px 0;
+      padding: 10px 10px;
 
       &:hover {
         background: $gray-300;
@@ -121,5 +123,9 @@ export default {
       }
     }
   }
+}
+
+.ctx-menu {
+  width: 300px;
 }
 </style>

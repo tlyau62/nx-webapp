@@ -61,7 +61,7 @@
           <div class="menu-item">
             <i class="fas fa-search"></i>
           </div>
-          <div class="menu-item">
+          <div class="menu-item" @click="showAvatar">
             <avatar username="Jane Doe" :inline="true" :size="24" :rounded="false"></avatar>
           </div>
         </div>
@@ -119,6 +119,7 @@ import JsTree from "@/components/js-tree";
 import CtxMenuFactory from "nex-ctxmenu/src/components/ctx-menu/CtxMenuFactory";
 import CtxMenuEvtBus from "nex-ctxmenu/src/components/ctx-menu/ctx-menu-evt-bus";
 import TableCtxMenu from "@/components/table-ctx-menu/TableCtxMenu";
+import AvatarMenu from "@/components/table-ctx-menu/AvatarMenu";
 
 window.$ = $;
 
@@ -325,6 +326,23 @@ export default {
         }))
       ]
     };
+  },
+  methods: {
+    showAvatar(evt) {
+      console.log("asdf");
+
+      const targetDim = evt.target.getBoundingClientRect();
+
+      CtxMenuEvtBus.$emit("open", {
+        menuComp: AvatarMenu,
+        // menuComp: require("@/components/table-ctx-menu/AvatarMenu"),
+        pos: {
+          x: targetDim.left,
+          y: targetDim.top + targetDim.height
+        },
+        container: window.document.querySelector("html")
+      });
+    }
   }
 };
 </script>
